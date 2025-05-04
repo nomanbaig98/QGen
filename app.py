@@ -33,19 +33,22 @@ def set_question(question):
     st.session_state["my_question"] = question
 
 
-assistant_message_suggested = st.chat_message(
-    "assistant", avatar=avatar_url
-)
+assistant_message_suggested = st.chat_message("assistant", avatar=avatar_url)
 if assistant_message_suggested.button("Click to show suggested questions"):
     st.session_state["my_question"] = None
     questions = generate_questions_cached()
-    for i, question in enumerate(questions):
-        time.sleep(0.05)
-        button = st.button(
-            question,
-            on_click=set_question,
-            args=(question,),
-        )
+
+    if not questions:
+        assistant_message_suggested.warning("No suggested questions available.")
+    else:
+        for i, question in enumerate(questions):
+            time.sleep(0.05)
+            st.button(
+                question,
+                on_click=set_question,
+                args=(question,),
+            )
+
 
 my_question = st.session_state.get("my_question", default=None)
 
