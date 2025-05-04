@@ -4,3 +4,5 @@ backgroundColor="#111827"
 secondaryBackgroundColor="#1f2937"
 textColor="#9ca3af"
 font="sans serif"
+[vanna]
+api_key = "vn-a742f15f67254df584aa8260e350d666"

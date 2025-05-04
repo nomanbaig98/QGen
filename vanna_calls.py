@@ -4,7 +4,7 @@ from vanna.remote import VannaDefault
 @st.cache_resource(ttl=3600)
 def setup_vanna():
     vn = VannaDefault(
-        api_key=st.secrets["vn-a742f15f67254df584aa8260e350d666"],
+        api_key=st.secrets["vanna"]["api_key"],
         model="chinook"
     )
 
