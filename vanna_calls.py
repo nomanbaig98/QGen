@@ -6,6 +6,7 @@ from vanna.remote import VannaDefault
 def setup_vanna():
     vn = VannaDefault(api_key=st.secrets.get("vn-a742f15f67254df584aa8260e350d666"), model='chinook')
     vn.connect_to_sqlite("https://vanna.ai/Chinook.sqlite")
+    vn.train()
     return vn
 
 @st.cache_data(show_spinner="Generating sample questions ...")
